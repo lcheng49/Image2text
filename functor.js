@@ -24,5 +24,5 @@ function distForm(a, b) {
         newVar = Math.pow((a[i] - b[i]), 2);
         total += newVar;
     }
-    return total;
+    return Math.sqrt(total);
 }
