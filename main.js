@@ -43,6 +43,7 @@
                     for (var k = 0; k < arr[i].length; k++) {
                         for (var key in letters) {
                             var res = distForm(arr[i][k].img, letters[key]);
+                            console.log(key[0] + ": " + res);
                             if (res < 1500) {
                                 text += key[0];
                             }

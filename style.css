@@ -6,9 +6,13 @@
 #img_block {
     float: left;
     width: 400px;
-    margin-left: 20px;
+    margin-left: 40px;
 }
 
 .clear {
     clear: both
+}
+
+#text {
+    font-size: 22px;
 }
