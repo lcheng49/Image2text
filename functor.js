@@ -50,7 +50,8 @@ function compp(a, b) {
 }
 
 function comp(a, b) {
-    if (Math.abs(a.y_start - b.y_start) < 30) {
+    console.log(Math.abs((a.y_start + a.y_dim) - (b.y_start + b.y_dim)));
+    if (Math.abs((a.y_start + a.y_dim) - (b.y_start + b.y_dim)) < 2) {
         if (a.x_start > b.x_start) {
             //console.log(b.x_start);
             return 1;
@@ -61,7 +62,7 @@ function comp(a, b) {
         }
         return 0;
     } else {
-        return a.y_start - b.y_start;
+        return ((a.y_start + a.y_dim) - (b.y_start + b.y_dim));
     }
 }
 
