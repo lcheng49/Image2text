@@ -32,16 +32,14 @@
     $(document).on("click", "#save", function(e) {
         e.preventDefault();
         var text = $("#text").val();
-        var filename = "untitled";
+        var filename = "Translation";
         var blob = new Blob([text], { type: "text/plain;charset=utf-8" });
         saveAs(blob, filename + ".txt");
     });
 
 })();
 
-function compareGlyphs() {
-
-}
+function compareGlyphs() { }
 
 function writeToTextarea(text) {
     $("#text").val(text);
