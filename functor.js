@@ -34,29 +34,29 @@
 		return 0;
 	}
 }*/
-function compp(a,b){
-    console.log("a "  + a.y_start + " b " + b.y_start);
-    console.log(typeof(a.x_start));
-    if(a.y_start > b.y_start){
-        console.log("chose 1");
+function compp(a, b) {
+    //console.log("a " + a.y_start + " b " + b.y_start);
+    //console.log(typeof(a.x_start));
+    if (a.y_start > b.y_start) {
+        //console.log("chose 1");
         return 1;
-    }
-    else if(a.y_start < b.y_start){
-        console.log("chose -1");
+    } else if (a.y_start < b.y_start) {
+        //console.log("chose -1");
         return -1;
     } else {
-        console.log("chose 0");
+        //console.log("chose 0");
         return 0;
     }
 }
-function comp(a,b){
-    if(Math.abs(a.y_start - b.y_start) < 30){
+
+function comp(a, b) {
+    if (Math.abs(a.y_start - b.y_start) < 30) {
         if (a.x_start > b.x_start) {
-            console.log(b.x_start);
+            //console.log(b.x_start);
             return 1;
         }
         if (a.xstart < b.x_start) {
-            console.log(a.x_start);
+            //console.log(a.x_start);
             return -1;
         }
         return 0;
