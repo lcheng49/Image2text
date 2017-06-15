@@ -50,7 +50,7 @@ function compp(a,b){
     }
 }
 function comp(a,b){
-    if(Math.abs(a.y_start - b.y_start) < 30){
+    if(Math.abs(a.y_start - b.y_start) < 15){
         if (a.x_start > b.x_start) {
             console.log(b.x_start);
             return 1;
@@ -64,23 +64,6 @@ function comp(a,b){
         return a.y_start - b.y_start;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function distForm(a, b) {
     total = 0;
