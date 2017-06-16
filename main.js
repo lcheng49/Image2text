@@ -88,6 +88,10 @@
                                 //    console.log(res + ":" + letter);
                             }
 
+                            /*if (i == 0 && k == 3) {
+                                console.log(letter + " - " + key[0] + ":" + res);
+                            }*/
+
                             if (k == arraySpace[arrSpa]) {
                                 insertSpace = true;
 
@@ -115,6 +119,15 @@
         var filename = "untitled";
         var blob = new Blob([text], { type: "text/plain;charset=utf-8" });
         saveAs(blob, filename + ".txt");
+    });
+
+    $(document).on("change", "#langs", function() {
+        if ($(this).val() == "djv")
+            letters = lettersDejavuSans;
+        else if ($(this).val() == "hwr")
+            letters = lettersHandWritten;
+        else if ($(this).val() == "hwralt")
+            letters = lettersHandWrittenAlt;
     });
 
 })();
