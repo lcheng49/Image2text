@@ -116,6 +116,15 @@
         saveAs(blob, filename + ".txt");
     });
 
+    $(document).on("change", "#langs", function() {
+        if ($(this).val() == "djv")
+            letters = lettersDejavuSans;
+        else if ($(this).val() == "hwr")
+            letters = lettersHandWritten;
+        else if ($(this).val() == "hwralt")
+            letters = lettersHandWrittenAlt;
+    });
+
 })();
 
 function writeToTextarea(text) {
