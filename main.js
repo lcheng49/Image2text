@@ -48,11 +48,8 @@
                     //add spaces hopefully lul
                     var numVals = (arr[i].length - 1); //total number of vals in array -1 to acocunt for zero indexing
 
-
                     var arrayLength = (arr[i][numVals].x_start + arr[i][numVals].x_dim) - arr[i][0].x_start; //total length from xstart to end of x from first letter to last
                     var totalSpace = arrayLength; //number that is modified to find the total empty space
-
-
                     //for loop subtracts each x_dim to leave only empty space
                     for (var iLen = 0; iLen <= numVals; ++iLen) {
                         totalSpace -= arr[i][iLen].x_dim;
@@ -93,7 +90,9 @@
 
                             if (k == arraySpace[arrSpa]) {
                                 insertSpace = true;
+
                                 arrSpa += 1;
+
                             }
                         }
                         //if (letter == "w")
