@@ -1,12 +1,21 @@
 #ta_block {
     float: left;
     width: 400px;
-    margin-left: 40px;
+    margin-left: 20px;
 }
 
 #img_block {
     float: left;
     width: 400px;
+    cursor: pointer
+}
+
+#img_block #img {
+    width: 300px;
+}
+
+#image {
+    display: none;
 }
 
 .clear {
@@ -15,4 +24,8 @@
 
 #text {
     font-size: 22px;
+}
+
+label {
+    font-weight: bold;
 }
