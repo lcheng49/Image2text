@@ -19,19 +19,17 @@
                 type: 'POST'
             })
             .done(function(data) {
-
                 //writeToTextarea(JSON.stringify(data));
                 //return;
-                //data.sort(sortY);
-
-
                 data.sort(sortY);
+
                 text = "";
                 rowY = 0;
                 arr = [];
                 index = 0;
+
                 for (var i = 0; i < data.length; ++i) {
-                    if (data[i].y_dim < 40) continue;
+                    //if (data[i].y_dim < 40) continue;
                     if (rowY == 0) rowY = data[i].y_start;
                     if (Math.abs(rowY - data[i].y_start) >= data[i].y_dim) {
                         index++;
@@ -43,28 +41,28 @@
                     }
                     arr[index].push(data[i]);
                 }
+
                 for (var i = 0; i < arr.length; ++i) {
                     arr[i].sort(sortX);
-                    console.log(data);
+
                     //add spaces hopefully lul
                     var numVals = (arr[i].length - 1); //total number of vals in array -1 to acocunt for zero indexing
-                    //console.log(numVals);
+
+
                     var arrayLength = (arr[i][numVals].x_start + arr[i][numVals].x_dim) - arr[i][0].x_start; //total length from xstart to end of x from first letter to last
-                    var totalSpace = arrayLength;//number that is modified to find the total empty space
-                    //console.log(arrayLength);
+                    var totalSpace = arrayLength; //number that is modified to find the total empty space
+
+
                     //for loop subtracts each x_dim to leave only empty space
-                    for(var iLen = 0; iLen <= numVals; ++iLen){
+                    for (var iLen = 0; iLen <= numVals; ++iLen) {
                         totalSpace -= arr[i][iLen].x_dim;
                     }
                     var spaceAllowed = ((totalSpace / (numVals)) + 3); //space allowed per letter.
-                    console.log(spaceAllowed);
                     //loop through row again checking for spaces
                     var arraySpace = []; //array to hold values that need a space.
-                    for(var z = 1; z <= numVals; ++z){
-                        //var spaceLeft = (((arr[i][z].x_start + arr[i][z].x_dim) - arr[i][z-1].x_start) - (arr[i][z].x_dim + arr[i][z-1].x_dim))
-                        var spaceLeft = (arr[i][z].x_start - (arr[i][z-1].x_start + arr[i][z-1].x_dim));
-                        if(spaceLeft > spaceAllowed){
-                            console.log(spaceLeft);
+                    for (var z = 1; z < numVals; ++z) {
+                        var spaceLeft = (arr[i][z].x_start - (arr[i][z - 1].x_start + arr[i][z - 1].x_dim));
+                        if (spaceLeft > spaceAllowed) {
                             arraySpace.push(z - 1);
                             console.log(z-1);
                         }
@@ -75,23 +73,32 @@
 
 
                     for (var k = 0; k < arr[i].length; k++) {
+                        var tmpRes = null;
+                        var letter = null;
+                        var insertSpace = false;
                         for (var key in letters) {
                             var res = distForm(arr[i][k].img, letters[key]);
-                            //if (key[0] == "f" || key[0] == "T" || key[0] == "l")
-                            //    console.log(key[0] + ": " + res);
-                            if (res < 1500) {
-                                text += key[0];
-                                //check for spaces
-                                if(k == arraySpace[arrSpa]){
-                                    text += " ";
-                                    //console.log(k);
-                                    //console.log(arraySpace[arrSpa]);
-                                    arrSpa += 1;
-                                }
 
-                                break;
+                            if (letter === null)
+                                letter = key[0];
+                            if (tmpRes === null) {
+                                tmpRes = res;
+                            }
+                            if (tmpRes > res) {
+                                tmpRes = res;
+                                letter = key[0];
+                                //if (letter == "w" || letter == "W")
+                                //    console.log(res + ":" + letter);
+                            }
+
+                            if (k == arraySpace[arrSpa]) {
+                                insertSpace = true;
+                                arrSpa += 1;
                             }
                         }
+                        //if (letter == "w")
+                        //    console.log(letter + ":" + tmpRes);
+                        text += letter + (insertSpace ? " " : "");
                     }
                     text += "\n";
                 }
@@ -116,4 +123,3 @@
 function writeToTextarea(text) {
     $("#text").val(text);
 }
-
