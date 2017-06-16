@@ -7,11 +7,22 @@
 #img_block {
     float: left;
     width: 400px;
-    cursor: pointer
+    cursor: pointer;
+    position: relative
 }
 
 #img_block #img {
     width: 300px;
+    z-index: 35;
+}
+
+.img_message {
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 130px);
+    width: 200px;
+    height: 50px;
+    z-index: 33;
 }
 
 #image {
