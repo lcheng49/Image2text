@@ -19,6 +19,12 @@
                 type: 'POST'
             })
             .done(function(data) {
+<<<<<<< HEAD
+=======
+                //writeToTextarea(JSON.stringify(data));
+                //return;
+                data.sort(sortY);
+>>>>>>> myBranch
 
                 data.sort(sortY);
                 text = "";
@@ -26,6 +32,7 @@
                 arr = [];
                 index = 0;
                 for (var i = 0; i < data.length; ++i) {
+                    if (data[i].y_dim < 40) continue;
                     if (rowY == 0) rowY = data[i].y_start;
                     if (Math.abs(rowY - data[i].y_start) >= data[i].y_dim) {
                         index++;
@@ -42,8 +49,11 @@
                     for (var k = 0; k < arr[i].length; k++) {
                         for (var key in letters) {
                             var res = distForm(arr[i][k].img, letters[key]);
+                            //if (key[0] == "f" || key[0] == "T" || key[0] == "l")
+                            //    console.log(key[0] + ": " + res);
                             if (res < 1500) {
                                 text += key[0];
+                                break;
                             }
                         }
                     }
