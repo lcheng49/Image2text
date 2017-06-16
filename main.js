@@ -85,6 +85,10 @@
                                 //    console.log(res + ":" + letter);
                             }
 
+                            /*if (i == 0 && k == 3) {
+                                console.log(letter + " - " + key[0] + ":" + res);
+                            }*/
+
                             if (k == arraySpace[arrSpa]) {
                                 insertSpace = true;
                                 arrSpa += 1;
