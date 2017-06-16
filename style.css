@@ -1,12 +1,12 @@
 #ta_block {
     float: left;
     width: 400px;
+    margin-left: 40px;
 }
 
 #img_block {
     float: left;
     width: 400px;
-    margin-left: 40px;
 }
 
 .clear {
