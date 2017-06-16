@@ -14,18 +14,20 @@
 <body>
     <form>
         <input type="file" id="image" />
+        <label>Font: </label>
         <select id="langs">
             <option value="djv" selected>Dejavu Sans</option>
             <option value="hwr">Hand Written</option>
-            <option value="hwralt">Hand Written Alternative</option>
+            <option value="hwralt">Hand Written 2</option>
         </select>
+        <label>Line spacing: </label>
         <input id="lineSpace" value="1" size="2" />
         <button id="recognize" type="button">Recognize</button>
     </form>
 
     <div>
         <div id="img_block">
-            <img id="img" src="" width="300" />
+            <img id="img" src="" />
         </div>
         <div id="ta_block">
             <textarea id="text" rows="12" cols="30"></textarea>

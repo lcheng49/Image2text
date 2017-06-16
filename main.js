@@ -5,14 +5,6 @@
         var fd = new FormData();
         fd.append('file', image.files[0]);
 
-        if (FileReader && image.files && image.files.length) {
-            var fr = new FileReader();
-            fr.onload = function() {
-                document.getElementById("img").src = fr.result;
-            }
-            fr.readAsDataURL(image.files[0]);
-        }
-
         $.ajax({
                 url: 'http://172.19.144.219:12345/images',
                 data: fd,
@@ -76,6 +68,9 @@
                         var tmpRes = null;
                         var letter = null;
                         var insertSpace = false;
+
+                        if (typeof letters == "undefined")
+                            letters = lettersDejavuSans;
                         for (var key in letters) {
                             var res = distForm(arr[i][k].img, letters[key]);
 
@@ -114,6 +109,20 @@
             .always(function() {
 
             });
+    });
+
+    $(document).on("change", "#image", function(e) {
+        if (FileReader && this.files && this.files.length) {
+            var fr = new FileReader();
+            fr.onload = function() {
+                document.getElementById("img").src = fr.result;
+            }
+            fr.readAsDataURL(this.files[0]);
+        }
+    });
+
+    $(document).on("click", "#img_block", function() {
+        $("#image").trigger("click");
     });
 
     $(document).on("click", "#save", function(e) {
