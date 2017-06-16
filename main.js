@@ -29,7 +29,7 @@
                 index = 0;
 
                 for (var i = 0; i < data.length; ++i) {
-                    //if (data[i].y_dim < 40) continue;
+                    if (data[i].y_dim < 40) continue;
                     if (rowY == 0) rowY = data[i].y_start;
                     if (Math.abs(rowY - data[i].y_start) >= data[i].y_dim) {
                         index++;
