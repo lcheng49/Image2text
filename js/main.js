@@ -148,7 +148,7 @@
         else
             $(".settings_container")
             .css("display", "block")
-            .animate({ left: 250 }, 500);
+            .animate({ left: 245 }, 500);
     });
 })();
 
