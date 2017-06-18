@@ -6,7 +6,8 @@
         fd.append('file', image.files[0]);
 
         $.ajax({
-                url: 'http://172.19.144.219:12345/images',
+                //url: 'http://172.19.144.219:12345/images',
+                url: 'http://127.0.0.1:12345/images',
                 data: fd,
                 processData: false,
                 contentType: false,
@@ -135,6 +136,19 @@
             letters = lettersHandWritten;
         else if ($(this).val() == "hwralt")
             letters = lettersHandWrittenAlt;
+    });
+
+    $(document).on("click", "#settings", function() {
+        var isVisible = $(".settings_container").is(":visible");
+        if (isVisible)
+            $(".settings_container")
+            .animate({ left: 180 }, 500, function() {
+                $(".settings_container").css("display", "none");
+            });
+        else
+            $(".settings_container")
+            .css("display", "block")
+            .animate({ left: 250 }, 500);
     });
 })();
 

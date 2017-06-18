@@ -1,43 +1,55 @@
 <html>
 
 <head>
-    <script src="jquery.js"></script>
-    <script src="FileSaver.min.js"></script>
-    <script src="main.js"></script>
-    <script src="functor.js"></script>
-    <!--<script src="letters.js"></script>-->
-    <script src="letters.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/FileSaver.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/functor.js"></script>
+    <script src="js/letters.js"></script>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <form>
-        <input type="file" id="image" />
-        <label>Font: </label>
-        <select id="langs">
-            <option value="djv" selected>Dejavu Sans</option>
-            <option value="hwr">Hand Written</option>
-            <option value="hwralt">Hand Written 2</option>
-        </select>
-        <label>Line spacing: </label>
-        <input id="lineSpace" value="1" size="2" />
-        <button id="recognize" type="button">Recognize</button>
-    </form>
+    <div id="header">
+        <img src="img/logo.png" height="50px;" />
+        <span>IMAGE2TEXT</span>
+    </div>
+    <div id="tools_container">
+        <form>
+            <input type="file" id="image" />
+            <label>Letters: 
+                <select id="langs">
+                    <option value="djv" selected>Dejavu Sans</option>
+                    <option value="hwr">Hand Written</option>
+                    <option value="hwralt">Hand Written 2</option>
+                </select>
+            </label>
+            <button id="settings" type="button">Settings</button>
+            <div class="settings_container">
+                <label>Line spacing: </label>
+                <input id="lineSpace" value="1" size="2" />
+            </div>
+        </form>
+    </div>
 
-    <div>
+    <div id="image_process_container">
         <div id="img_block">
             <div class="img_message">Click to select the image</div>
-            <img id="img" src="" />
+            <div style="font-weight: bold">Source image</div>
+            <div class="img_container"><img id="img" src="img/blank.png" /></div>
+        </div>
+        <div id="buttons_block">
+            <button id="recognize" type="button">Recognize</button>
+            <br><br>
+            <button type="button" id="save">Download</button>
         </div>
         <div id="ta_block">
+            <div style="font-weight: bold">Recognized text</div>
             <textarea id="text" rows="12" cols="30"></textarea>
         </div>
         <div class="clear"></div>
     </div>
-    <br/>
-    <button type="button" id="save">Download</button>
-
 </body>
 
 </html>

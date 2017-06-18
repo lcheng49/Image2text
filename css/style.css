@@ -1,0 +1,99 @@
+body {
+    background-color: #dbebff;
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    background-color: #222;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    margin: 0;
+}
+
+#header img,
+#header span {
+    vertical-align: middle
+}
+
+#tools_container,
+#image_process_container {
+    padding: 10px;
+    position: relative
+}
+
+#ta_block {
+    float: left;
+    width: 400px;
+    margin-left: 10px;
+    text-align: center
+}
+
+#buttons_block {
+    float: left;
+    width: 100px;
+    margin: 100px 0 0 30px;
+}
+
+button,
+select {
+    height: 40px;
+    z-index: 101
+}
+
+button#settings {
+    position: relative
+}
+
+.settings_container {
+    display: none;
+    position: absolute;
+    left: 180px;
+    top: 20px;
+    z-index: 100
+}
+
+#img_block {
+    float: left;
+    width: 400px;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+}
+
+#img_block #img {
+    width: 398px;
+    z-index: 35;
+}
+
+.img_container {
+    border: 1px solid #ccc;
+    height: 302px;
+}
+
+.img_message {
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 130px);
+    width: 200px;
+    height: 50px;
+    z-index: 33;
+    display: none
+}
+
+#image {
+    display: none;
+}
+
+.clear {
+    clear: both
+}
+
+#text {
+    font-size: 22px;
+}
+
+label {
+    font-weight: bold;
+}
