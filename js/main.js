@@ -100,7 +100,7 @@
                     text += "\n";
                 }
                 writeToTextarea(text);
-
+                drawLetterFrames(arr);
             })
             .always(function() {
 
@@ -109,6 +109,7 @@
 
     $(document).on("change", "#image", function(e) {
         if (FileReader && this.files && this.files.length) {
+            $(".img_frame").remove();
             var fr = new FileReader();
             fr.onload = function() {
                 document.getElementById("img").src = fr.result;
@@ -150,8 +151,33 @@
             .css("display", "block")
             .animate({ left: 245 }, 500);
     });
+
+    $(document).on("submit", "form", function(e) {
+        e.preventDefault;
+        return false;
+    });
 })();
 
 function writeToTextarea(text) {
     $("#text").val(text);
+}
+
+function drawLetterFrames(arr) {
+    var imgRealWidth = $("#img")[0].naturalWidth;
+    var imgScaledWidth = $("#img").width();
+    var scale = imgRealWidth / imgScaledWidth;
+
+    for (var i = 0; i < arr.length; ++i) {
+        for (var k = 0; k < arr[i].length; k++) {
+            var x = Math.round(arr[i][k].x_start / scale);
+            var y = Math.round(arr[i][k].y_start / scale);
+            var w = Math.round(arr[i][k].x_dim / scale);
+            var h = Math.round(arr[i][k].y_dim / scale);
+
+            var frame = $("<div class='img_frame'></div>");
+            frame.css("top", y).css("left", x)
+                .css("width", w).css("height", h);
+            $(".img_container").append(frame);
+        }
+    }
 }
